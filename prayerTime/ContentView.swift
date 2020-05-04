@@ -10,10 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
   
+
+    @State var newColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+    
     var body: some View {
+        
         ZStack{
-//                    Color.white
-//                    .edgesIgnoringSafeArea(.all)
+               Color(newColor)
+                .opacity(0.5)
+               .edgesIgnoringSafeArea(.all)
 
                 VStack{
                     HStack{
@@ -50,53 +55,68 @@ struct ContentView: View {
                     }.background(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)).opacity(0.5))
                     VStack{
                     HStack(alignment: .center, spacing: 10, content:{
-                        Text("3:37 AM").modifier(textColorBlack())
+                        Text("3:37 AM")
                         .offset(x: 10)
                         Spacer()
-                          Text("الفجر").modifier(textColorBlack())
+                          Text("الفجر")
                         .offset(x: -10)
-                    })
+                    }).modifier(textColorBlack())
+                        .onTapGesture {
+                        self.newColor = UIColor(red: 242/255, green: 145/255, blue: 198, alpha: 1)
+                        }
                     HStack(alignment: .center, spacing: 10, content:{
-                        Text("5:04 AM").modifier(textColorBlack())
+                        Text("5:04 AM")
                         .offset(x: 10)
                         Spacer()
-                          Text("الشروق").modifier(textColorBlack())
+                          Text("الشروق")
                         .offset(x: -10)
-                    })
+                    }).modifier(textColorBlack())
+                        .onTapGesture {
+                    self.newColor = UIColor(red: 65/255, green: 110/255, blue: 225/255, alpha: 1)
+                    }
                     HStack(alignment: .center, spacing: 10, content:{
-                        Text("11:45 AM").modifier(textColorBlack())
+                        Text("11:45 AM")
                         .offset(x: 10)
                         Spacer()
-                          Text("الظهر").modifier(textColorBlack())
+                          Text("الظهر")
                         .offset(x: -10)
-                    })
+                    }).modifier(textColorBlack())
+                        .onTapGesture {
+                    self.newColor = UIColor(red: 86/255, green: 229/255, blue: 105/255, alpha: 1)
+                    }
                     HStack(alignment: .center, spacing: 10, content:{
-                        Text("3:21 PM").modifier(textColorBlack())
+                        Text("3:21 PM")
                         .offset(x: 10)
                         Spacer()
-                          Text("العصر").modifier(textColorBlack())
+                          Text("العصر")
                         .offset(x: -10)
-                    })
-
+                    }).modifier(textColorBlack())
+                        .onTapGesture {
+                    self.newColor = UIColor(red: 230/255, green: 235/255, blue: 126/255, alpha: 1)
+                    }
                     HStack(alignment: .center, spacing: 10, content:{
-                        Text("6:25 PM").modifier(textColorBlack())
+                        Text("6:25 PM")
                         .offset(x: 10)
                         Spacer()
-                          Text("المغرب").modifier(textColorBlack())
+                          Text("المغرب")
                         .offset(x: -10)
-                    })
-
+                    }).modifier(textColorBlack())
+                        .onTapGesture {
+                    self.newColor = UIColor(red: 237/255, green: 75/255, blue: 42/255, alpha: 1)
+                    }
                     HStack(alignment: .center, spacing: 10, content:{
-                        Text("7:50 PM").modifier(textColorBlack())
+                        Text("7:50 PM")
                         .offset(x: 10)
                         Spacer()
-                          Text("العشاء").modifier(textColorBlack())
+                          Text("العشاء")
                         .offset(x: -10)
-                    })
+                    }).modifier(textColorBlack())
+                        .onTapGesture {
+                    self.newColor = UIColor(red: 35/255, green: 229/255, blue: 226/255, alpha: 1)
+                    }
                     }.background(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)).opacity(0.5))
-            }.foregroundColor(.black)
-        }.background(Color(.white).opacity(0.5))
-        .edgesIgnoringSafeArea(.all)
+            }
+        }
     }
 }
 
@@ -104,6 +124,17 @@ struct textColorBlack: ViewModifier {
     func body(content: Content) -> some View {
         content
         .font(.custom("Arial", size: 25))
+        .foregroundColor(.black)
+        .multilineTextAlignment(.center)
+        .padding(.all)
+    }
+}
+
+struct textColorWhite: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+        .font(.custom("Arial", size: 25))
+             .foregroundColor(.white)
         .multilineTextAlignment(.center)
         .padding(.all)
     }
